@@ -1,0 +1,83 @@
+// =============== Variable ============== //
+
+
+// =============== Import ============== //
+
+@import 'mixin.scss';
+
+
+// =============== ALL ============== //
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: currentColor;
+}
+
+li {
+  list-style: none;
+}
+// =============== HEADER ============== //
+
+header {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  padding: 25px 0;
+  width: 100vw;
+  box-shadow: 0px 0px 20px 0px;
+  
+}
+
+/* Logo */
+
+h1 {
+  @include fonts;
+  margin-bottom: 15px;
+  justify-items: center;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 5rem;  
+}
+
+/* Menu */
+
+nav {
+  position: absolute;
+  top: 70%;
+  width: 100vw;
+  
+}
+
+.menu {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+
+
+  &__element {
+    @include fonts;
+    font-size: 1.5rem;
+    margin: 10px;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.5;
+      transition: all 400ms;
+    }
+  }
+
+}
+
+
+
+
+// =============== MAIN ============== //
+
+    // =============== Carousel ============== //
+
