@@ -1,3 +1,11 @@
+// Pour les fonts 
 @mixin fonts {
   font-family: 'Alegreya', Arial, Helvetica, sans-serif;
+}
+
+// Pour placer un element au centre 
+@mixin flexmid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
