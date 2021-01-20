@@ -90,7 +90,7 @@ nav {
   padding: 20px;
   margin-bottom: 15px;
   width: 100%;
-  height: 600px;
+  height: 700px;
 
 
   &__box {
@@ -98,7 +98,7 @@ nav {
     margin: 20px;
     padding: 5px 5px;
     background-color: #fff;
-    height: 250px;
+    height: 300px;
     border-radius: 5px;
     box-shadow: 2px 2px 20px -8px;
 
@@ -172,8 +172,24 @@ nav {
 // =============== FOOTER ============== //
 
 footer {
+  @include fonts;
   background-color: black;
   height: 200px;
   box-shadow: inset 0px 10px 10px -9px #fff;
+  padding-top: 30px;
+
+  #footer__logo {
+    display: flex;
+    justify-content: center;
+    font-size: 4rem;
+    font-weight: bold;
+    font-style: italic;
+    color: #fff; 
+  }
+
+  .footer__text {
+    @include flexmid;
+    color: #fff;
+  }
 }
 

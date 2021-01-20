@@ -1,0 +1,72 @@
+@import 'mixin.scss';
+
+// =============== MAIN ============== //
+
+    // ~~~~~~~~~~~ ARTICLE ~~~~~~~~~~~ //
+
+.article {
+    display: flex;
+    flex-direction: column;
+    height: 1800px;
+
+    &__box {
+        &:nth-child(4) {
+            max-width: 100%;
+        }
+
+        // Setting des parametres dans la box
+
+        &__img {
+            width: 50%;
+        }
+
+        &__info {
+            opacity: 1;
+            overflow: initial;
+
+            &__name {
+                @include flexmid;
+                font-size: 1.5rem;
+            }
+
+            &__description {
+                margin-top: 10%;
+            }
+
+            &__achat {
+                @include fonts;
+                display: flex;
+                justify-content: space-around;
+                margin-top: 12%;
+
+                &__prix {
+                    font-weight: bold;
+                    color: red;
+                }
+
+                &__btn {
+                    padding: 10px;
+                    color: #ffffff;
+                    background-color: black;
+                    border: solid 1px black;
+                    cursor: pointer;
+
+                    &:hover {
+                        opacity: 0.8;
+                        transition: all 400ms;
+                    }
+                }
+            }
+        }
+
+    }  
+}
+
+// Annuler les effets 
+.article__box:hover > .article__box__img {
+    width: 50%;
+  }
+  
+  .article__box:hover > .article__box__info {
+    opacity: 1;
+  }
