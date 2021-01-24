@@ -4,8 +4,10 @@
   height: 1800px; }
   .article__box:nth-child(4) {
     max-width: 100%; }
-  .article__box__img {
+  .article__box__lien {
     width: 50%; }
+  .article__box__img {
+    width: 100%; }
   .article__box__info {
     opacity: 1;
     overflow: initial; }
@@ -22,17 +24,21 @@
       justify-content: space-around;
       margin-top: 12%; }
       .article__box__info__achat__prix {
+        font-size: 1.5rem;
         font-weight: bold;
         color: red; }
-      .article__box__info__achat__btn {
+      .article__box__info__achat__panier__btn {
         padding: 10px;
         color: #ffffff;
         background-color: black;
         border: solid 1px black;
+        border-radius: 5px;
         cursor: pointer; }
-        .article__box__info__achat__btn:hover {
+        .article__box__info__achat__panier__btn:hover {
           opacity: 0.8;
           transition: all 400ms; }
+      .article__box__info__achat__panier__choix {
+        height: 35px; }
 
 .article__box:hover > .article__box__img {
   width: 50%; }
@@ -40,4 +46,4 @@
 .article__box:hover > .article__box__info {
   opacity: 1; }
 
-/*# sourceMappingURL=product.css.map */
+/*# sourceMappingURL=products.css.map */

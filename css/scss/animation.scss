@@ -1,0 +1,23 @@
+// Changement de page 
+
+@keyframes changePage {
+    from {
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.1;
+    }
+
+    40% {
+        opacity: 0.6;
+    }
+
+    60% {
+        opacity: 0.8;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

@@ -16,8 +16,12 @@
 
         // Setting des parametres dans la box
 
-        &__img {
+        &__lien {
             width: 50%;
+        }
+
+        &__img {
+            width: 100%;
         }
 
         &__info {
@@ -40,22 +44,30 @@
                 margin-top: 12%;
 
                 &__prix {
+                    font-size: 1.5rem;
                     font-weight: bold;
                     color: red;
                 }
 
-                &__btn {
-                    padding: 10px;
-                    color: #ffffff;
-                    background-color: black;
-                    border: solid 1px black;
-                    cursor: pointer;
-
-                    &:hover {
-                        opacity: 0.8;
-                        transition: all 400ms;
+                &__panier {
+                    &__btn {
+                        padding: 10px;
+                        color: #ffffff;
+                        background-color: black;
+                        border: solid 1px black;
+                        border-radius: 5px;
+                        cursor: pointer;
+    
+                        &:hover {
+                            opacity: 0.8;
+                            transition: all 400ms;
+                        }
                     }
-                }
+
+                    &__choix {
+                        height: 35px;
+                    }
+                } 
             }
         }
 

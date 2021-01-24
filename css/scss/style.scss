@@ -3,7 +3,7 @@ $base-color: #c6538c;
 
 // =============== Import ============== //
 
-@import 'mixin.scss';
+@import 'mixin.scss', 'animation.scss';
 
 
 // =============== ALL ============== //
@@ -12,6 +12,10 @@ $base-color: #c6538c;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  animation: changePage 2s;
 }
 
 a {
