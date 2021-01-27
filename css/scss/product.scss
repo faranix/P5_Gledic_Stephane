@@ -1,0 +1,43 @@
+@import 'mixin.scss';
+
+// =============== MAIN ============== //
+
+main {
+    padding: 20px;
+    background-color: green;
+}
+
+.product {
+    display: flex;
+    &__img {
+        height: 600px;
+        background-color: blue;
+        width: 35%;
+    }
+
+    &__article {
+        width: 65%;
+        height: 600px;
+        padding: 0 10px;
+        margin-left: 20px;
+        background-color: red;
+
+        &__title {
+            @include flexmid;
+            font-size: 2rem;
+            margin: 5px 0;
+        }
+
+        &__description {
+            display: flex;
+
+            &__text {
+                flex: 1;
+            }
+
+            &__prix {
+                flex: 1;
+            }
+        }
+    }
+}

@@ -1,0 +1,30 @@
+main {
+  padding: 20px;
+  background-color: green; }
+
+.product {
+  display: flex; }
+  .product__img {
+    height: 600px;
+    background-color: blue;
+    width: 35%; }
+  .product__article {
+    width: 65%;
+    height: 600px;
+    padding: 0 10px;
+    margin-left: 20px;
+    background-color: red; }
+    .product__article__title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2rem;
+      margin: 5px 0; }
+    .product__article__description {
+      display: flex; }
+      .product__article__description__text {
+        flex: 1; }
+      .product__article__description__prix {
+        flex: 1; }
+
+/*# sourceMappingURL=product.css.map */

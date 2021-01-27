@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orinoco/Products/Product</title>
+
+    <!-- Liens -->
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/product.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,500;1,400;1,700&display=swap" rel="stylesheet"/>
+        
+    <!-- Javascript -->
+    <script src="app.js"></script>
+    <script src="server.js"></script>
 </head>
 <body>
     <div class="container">
@@ -18,6 +28,48 @@
               </ul>
             </nav>
           </header>
+
+          <main>
+            <div class="product">
+              <img src="" class="product__img">
+              <div class="product__article">
+                <div class="product__article__title">
+                  <h2>title</h2>
+                </div>
+                <div class="product__article__description">
+                    <div class="product__article__info__description__text">
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus recusandae nostrum repellat veritatis labore totam placeat ratione quos! Temporibus at inventore veniam nihil quidem in tempora dignissimos assumenda quisquam facere!</p>
+                    </div>
+                    
+                    <div class="product__article__info__description__prix">
+                      <select name="nombre" id="nombre">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                      </select>
+
+                      <button type="button" id="button-panier">Mettre au Panier</button>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </main>
+
+          <footer>
+            <h2 id="footer__logo">Orinoco</h2>
+            <a href="mailto:stephane59119@gmail.com" class="footer__text">Contact</a>
+          </footer>
     </div>
+
+    <!-- Javascript -->
+    <script src="../product.js" text="javascript"></script>
 </body>
 </html>
