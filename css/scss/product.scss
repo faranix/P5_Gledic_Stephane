@@ -30,6 +30,8 @@ main {
 
         &__description {
             display: flex;
+            flex-direction: column;
+            margin-top: 10%;
 
             &__text {
                 flex: 1;

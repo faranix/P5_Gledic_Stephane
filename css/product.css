@@ -21,7 +21,9 @@ main {
       font-size: 2rem;
       margin: 5px 0; }
     .product__article__description {
-      display: flex; }
+      display: flex;
+      flex-direction: column;
+      margin-top: 10%; }
       .product__article__description__text {
         flex: 1; }
       .product__article__description__prix {
