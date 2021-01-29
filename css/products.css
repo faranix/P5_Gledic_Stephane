@@ -1,44 +1,46 @@
-.article {
+#article {
   display: flex;
   flex-direction: column;
   height: 1800px; }
-  .article__box:nth-child(4) {
-    max-width: 100%; }
-  .article__box__lien {
-    width: 50%; }
-  .article__box__img {
-    width: 100%; }
-  .article__box__info {
-    opacity: 1;
-    overflow: initial; }
-    .article__box__info__name {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 1.5rem; }
-    .article__box__info__description {
-      margin-top: 10%; }
-    .article__box__info__achat {
-      font-family: 'Alegreya', Arial, Helvetica, sans-serif;
-      display: flex;
-      justify-content: space-around;
-      margin-top: 12%; }
-      .article__box__info__achat__prix {
-        font-size: 1.5rem;
-        font-weight: bold;
-        color: red; }
-      .article__box__info__achat__panier__btn {
-        padding: 10px;
-        color: #ffffff;
-        background-color: black;
-        border: solid 1px black;
-        border-radius: 5px;
-        cursor: pointer; }
-        .article__box__info__achat__panier__btn:hover {
-          opacity: 0.8;
-          transition: all 400ms; }
-      .article__box__info__achat__panier__choix {
-        height: 35px; }
+
+.article__box:nth-child(4) {
+  max-width: 100%; }
+.article__box__lien {
+  width: 50%; }
+.article__box__img {
+  width: 100%;
+  height: 100%; }
+.article__box__info {
+  opacity: 1;
+  overflow: initial; }
+  .article__box__info__name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem; }
+  .article__box__info__description {
+    margin-top: 10%; }
+  .article__box__info__achat {
+    font-family: 'Alegreya', Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 12%; }
+    .article__box__info__achat__prix {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: red; }
+    .article__box__info__achat__panier__btn {
+      padding: 10px;
+      color: #ffffff;
+      background-color: black;
+      border: solid 1px black;
+      border-radius: 5px;
+      cursor: pointer; }
+      .article__box__info__achat__panier__btn:hover {
+        opacity: 0.8;
+        transition: all 400ms; }
+    .article__box__info__achat__panier__choix {
+      height: 35px; }
 
 .article__box:hover > .article__box__img {
   width: 50%; }

@@ -4,75 +4,76 @@
 
     // ~~~~~~~~~~~ ARTICLE ~~~~~~~~~~~ //
 
-.article {
+#article {
     display: flex;
     flex-direction: column;
     height: 1800px;
+}
 
-    &__box {
-        &:nth-child(4) {
-            max-width: 100%;
+.article__box {
+    &:nth-child(4) {
+        max-width: 100%;
+    }
+
+    // Setting des parametres dans la box
+
+    &__lien {
+        width: 50%;
+    }
+
+    &__img {
+        width: 100%;
+        height: 100%;
+    }
+
+    &__info {
+        opacity: 1;
+        overflow: initial;
+
+        &__name {
+            @include flexmid;
+            font-size: 1.5rem;
         }
 
-        // Setting des parametres dans la box
-
-        &__lien {
-            width: 50%;
+        &__description {
+            margin-top: 10%;
         }
 
-        &__img {
-            width: 100%;
-        }
+        &__achat {
+            @include fonts;
+            display: flex;
+            justify-content: space-around;
+            margin-top: 12%;
 
-        &__info {
-            opacity: 1;
-            overflow: initial;
-
-            &__name {
-                @include flexmid;
+            &__prix {
                 font-size: 1.5rem;
+                font-weight: bold;
+                color: red;
             }
 
-            &__description {
-                margin-top: 10%;
-            }
+            &__panier {
+                &__btn {
+                    padding: 10px;
+                    color: #ffffff;
+                    background-color: black;
+                    border: solid 1px black;
+                    border-radius: 5px;
+                    cursor: pointer;
 
-            &__achat {
-                @include fonts;
-                display: flex;
-                justify-content: space-around;
-                margin-top: 12%;
-
-                &__prix {
-                    font-size: 1.5rem;
-                    font-weight: bold;
-                    color: red;
+                    &:hover {
+                        opacity: 0.8;
+                        transition: all 400ms;
+                    }
                 }
 
-                &__panier {
-                    &__btn {
-                        padding: 10px;
-                        color: #ffffff;
-                        background-color: black;
-                        border: solid 1px black;
-                        border-radius: 5px;
-                        cursor: pointer;
-    
-                        &:hover {
-                            opacity: 0.8;
-                            transition: all 400ms;
-                        }
-                    }
-
-                    &__choix {
-                        height: 35px;
-                    }
-                } 
-            }
+                &__choix {
+                    height: 35px;
+                }
+            } 
         }
+    }
 
-    }  
-}
+}  
 
 // Annuler les effets 
 .article__box:hover > .article__box__img {
