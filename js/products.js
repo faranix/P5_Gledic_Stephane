@@ -1,8 +1,8 @@
 // =============== API ============== //
 const article = document.querySelector('#article');
 
-
-fetch('http://localhost:3000/api/cameras')
+async function getApi() {
+  await fetch('http://localhost:3000/api/cameras')
   .then(res => {
     if(res.ok) {
       res.json().then(data => {
@@ -38,3 +38,6 @@ fetch('http://localhost:3000/api/cameras')
       article.appendChild(errorText);
     }
   })
+}
+
+getApi();
