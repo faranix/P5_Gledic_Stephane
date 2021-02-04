@@ -38,6 +38,7 @@ main {
         font-weight: bold;
         color: red; }
       .product__article__description__btn {
+        display: flex;
         margin-top: 5%;
         width: 100%; }
 
