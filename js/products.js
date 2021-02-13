@@ -1,21 +1,21 @@
 // =============== API ============== //
 const article = document.querySelector('#article');
 
-// Faire un appel a API pour recuperer les data
-async function fetchData() {
-  const response = await fetch('http://localhost:3000/api/cameras/')
-  
-  let data = await response.json();
-  return data;
+// Fonction qui permet d'appeler les produits de API
+async function getProductsFromApi() {
+  await fetch('http://localhost:3000/api/cameras/')
+    .then(res => {
+      res.json().then(products => {
+        createHtml(products);
+      })
+    })
 }
 
-const dataApi = fetchData();    // Stocker les data dans une variable (c'est une promise)
+getProductsFromApi();
 
-// Function qui crée tout le code html avec les data 
-dataApi.then( function htmlCreated(data) {
+// Fonction qui permet de crée HTML avec les données reçu 
+function createHtml(data) {
     
-    console.log({data});
-
     // Creation des articles dans une boucle forEach
   data.forEach(element => {
     let box = document.createElement('div');
@@ -37,4 +37,4 @@ dataApi.then( function htmlCreated(data) {
     article.appendChild(box);
     console.log('box', box);
   });
-})
+}

@@ -7,7 +7,7 @@ async function getProductFromApi() {
             res.json().then(produit => {
                 createHTML(produit);
 
-                // Ajouter d'un evenement sur le btn pour que cela s'active quand user clique dessus.
+                // Ajouter d'un evenement sur le btn pour que cela s'active quand user click dessus.
                 document.querySelector('#button-panier').addEventListener('click', () => {
                     addToPanier(produit);
                 })
@@ -22,7 +22,7 @@ function getIdFromParam(id) {
     // Stocker le parametre trouver dans une variable
     const url = window.location.search;
 
-    // Creation d'une condition qui vérifie si id existe bien 
+    // Creation d'un condition qui vérifie si id existe bien 
     if(url == false) {
         console.error('Id non trouver');
         return false;
