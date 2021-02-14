@@ -27,7 +27,7 @@ function getIdFromParam(id) {
         console.error('Id non trouver');
         return false;
     } else {
-        // Split la valeur pour garder que la valeur 
+        // Split url pour garder que la valeur 
         id = url.split('=');
         return id[1];
     }
@@ -91,11 +91,15 @@ function createHTML(data) {
     }
 }
 
+
+
 // Fonction qui permet d'ajouter le produit au local storage.
 function addToPanier(produit) {
     // Recuperation des informations manquante.
     let number = document.querySelector('#nombre');
     let color = document.querySelector('#color');
+    console.log(produit);
+
 
     // Condition qui vérifie si les informations que user entre sont pas null
     if(number == null || color == null) {
@@ -110,7 +114,8 @@ function addToPanier(produit) {
             name : produit.name,
             id : produit._id,
             description : produit.description,
-            price : produit.price
+            price : produit.price,
+            lenses : produit.lenses
         });
 
         localStorage.setItem('panier', JSON.stringify(panier));
