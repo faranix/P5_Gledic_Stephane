@@ -1,8 +1,11 @@
 // ====== ALL ===== //
+@import 'mixin.scss';
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    @include fonts;
 }
 
 h2 {
@@ -30,7 +33,7 @@ h6 {
     order: 1;
     background-color: black;
     width: 60vw;
-    height: 150px;
+    height: 200px;
     margin-bottom: 30px;
     box-shadow: 2px 2px 20px -8px rgb(46, 46, 46);
     padding: 5px;
@@ -41,18 +44,35 @@ h6 {
 
     &__information {
         width: 70%;
+        padding: 15px;
+
+        &__name {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            &__icon {
+                &:hover {
+                    color: red;
+
+                    transition: all 200ms;
+                }
+            }
+        }
 
         &__container {
-            display: flex;
             padding: 5px;
 
+            &__description {
+                display: flex;
+                justify-content: space-between;
+                margin-top: 20px;
+            }
         }
     }
 
     &:hover {
-        background-color: #fff;
-        color: black;
-        cursor: pointer;
+        @include animationPanier;
     }
 }
 
@@ -62,5 +82,9 @@ h6 {
     width: 30vw;
     height: 90vh;
     box-shadow: 2px 2px 20px -8px rgb(46, 46, 46);
+
+    &:hover {
+        @include animationPanier;
+    }
 
 }

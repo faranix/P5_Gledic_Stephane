@@ -9,3 +9,10 @@
   justify-content: center;
   align-items: center;
 }
+
+@mixin animationPanier { 
+  background-color: #fff;
+  color: black;
+  cursor: pointer;
+  transition: all 400ms;
+}

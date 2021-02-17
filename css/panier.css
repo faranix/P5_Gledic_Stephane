@@ -1,7 +1,8 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  font-family: 'Alegreya', Arial, Helvetica, sans-serif; }
 
 h2 {
   color: black;
@@ -22,21 +23,33 @@ h6 {
   order: 1;
   background-color: black;
   width: 60vw;
-  height: 150px;
+  height: 200px;
   margin-bottom: 30px;
   box-shadow: 2px 2px 20px -8px #2e2e2e;
   padding: 5px; }
   .product__img {
     width: 30%; }
   .product__information {
-    width: 70%; }
-    .product__information__container {
+    width: 70%;
+    padding: 15px; }
+    .product__information__name {
       display: flex;
+      justify-content: space-between;
+      align-items: center; }
+      .product__information__name__icon:hover {
+        color: red;
+        transition: all 200ms; }
+    .product__information__container {
       padding: 5px; }
+      .product__information__container__description {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px; }
   .product:hover {
     background-color: #fff;
     color: black;
-    cursor: pointer; }
+    cursor: pointer;
+    transition: all 400ms; }
 
 .facture {
   order: 2;
@@ -44,5 +57,10 @@ h6 {
   width: 30vw;
   height: 90vh;
   box-shadow: 2px 2px 20px -8px #2e2e2e; }
+  .facture:hover {
+    background-color: #fff;
+    color: black;
+    cursor: pointer;
+    transition: all 400ms; }
 
 /*# sourceMappingURL=panier.css.map */
