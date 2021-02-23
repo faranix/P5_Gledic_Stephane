@@ -1,4 +1,5 @@
 const id = getIdFromParam();    // stocker id dans une variable
+let product = null;
 
 // Fonction qui permet de recuperer les data de api.
 async function getProductFromApi() {
@@ -6,11 +7,7 @@ async function getProductFromApi() {
         .then(res => {
             res.json().then(produit => {
                 createHTML(produit);
-
-                // Ajouter d'un evenement sur le btn pour que cela s'active quand user clique dessus.
-                document.querySelector('#button-panier').addEventListener('click', () => {
-                    addToPanier(produit);
-                })
+                product = produit;
             })
         }) 
 }
@@ -75,7 +72,9 @@ function createHTML(data) {
                             <option value="rouge">Rouge</option>
                         </select>
                     </form>
-                    <button type="submit" value="submit" id="button-panier"><a href="../pages/panier.html">Mettre au Panier</a></button>
+                    <button type="submit" value="submit" id="button-panier" onclick="addToPanier()">
+                        <a href="../pages/panier.html">Mettre au Panier</a>
+                    </button>
                 </div>
 
             </div>
@@ -94,11 +93,10 @@ function createHTML(data) {
 
 
 // Fonction qui permet d'ajouter le produit au local storage.
-function addToPanier(produit) {
+function addToPanier() {
     // Recuperation des informations manquante.
     let number = document.querySelector('#nombre');
     let color = document.querySelector('#color');
-    console.log(produit);
 
 
     // Condition qui vérifie si les informations que user entre sont pas null
@@ -110,12 +108,12 @@ function addToPanier(produit) {
         panier.push({
             number : number.value,
             color : color.value,
-            image : produit.imageUrl,
-            name : produit.name,
-            id : produit._id,
-            description : produit.description,
-            price : produit.price,
-            lenses : produit.lenses
+            image : product.imageUrl,
+            name : product.name,
+            id : product._id,
+            description : product.description,
+            price : product.price,
+            lenses : product.lenses
         });
 
         localStorage.setItem('panier', JSON.stringify(panier));

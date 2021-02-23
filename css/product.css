@@ -55,7 +55,7 @@ main {
   #button-panier:hover {
     background-color: black;
     color: #fff;
-    transition: all 500ms; }
+    transition: all 200ms; }
 
 #nombre {
   font-size: 1rem;

@@ -8,6 +8,9 @@ h2 {
   color: black;
   font-size: 2.5rem; }
 
+h3 {
+  font-size: 2rem; }
+
 h6 {
   font-size: 1.5rem; }
 
@@ -38,7 +41,7 @@ h6 {
       align-items: center; }
       .product__information__name__icon:hover {
         color: red;
-        transition: all 200ms; }
+        transition: all 150ms; }
     .product__information__container {
       padding: 5px; }
       .product__information__container__description {
@@ -54,9 +57,26 @@ h6 {
 .facture {
   order: 2;
   background-color: black;
-  width: 30vw;
+  width: 35vw;
   height: 90vh;
-  box-shadow: 2px 2px 20px -8px #2e2e2e; }
+  padding: 10px;
+  box-shadow: 2px 2px 20px -8px #2e2e2e;
+  text-align: center; }
+  .facture__liste {
+    display: flex;
+    justify-content: space-around;
+    margin: 5px; }
+    .facture__liste__element {
+      border-bottom: solid 1px;
+      padding-bottom: -10px; }
+  .facture .textFacture {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px; }
+    .facture .textFacture__liste {
+      display: flex;
+      justify-content: space-around;
+      width: 100%; }
   .facture:hover {
     background-color: #fff;
     color: black;
