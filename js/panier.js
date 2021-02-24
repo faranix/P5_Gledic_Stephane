@@ -1,6 +1,6 @@
 // ================ TEST ================= //
 // Création d'une boucle qui crée le html selon le panier reçu
-let panier = JSON.parse(localStorage.getItem('panier'));
+const panier = JSON.parse(localStorage.getItem('panier'));
 
 function createHtml() {
     const produits = document.querySelector('.products');
@@ -71,22 +71,17 @@ function removeAllPanier() {
 // Fonction qui permet de supprimer un produit cibler
 function removeProduit(id) {
     // Permet de selectionner ID de l'article
-    let article = document.querySelector(`#product-${id}`);
-
-    localStorage.getItem('panier');
+    const article = document.querySelector(`#product-${id}`);
 
     // Supprime article cibler
     article.remove();
 
     // Condiction qui supprime l'element cibler du localstorage 
     for (let i = 0; i < 1; i++) {
-        const index = panier.indexOf(panier[i]);
-        console.log(index);
+        let index = panier.indexOf(panier[i]);
         if (index > - 1) {
-            console.log(index);
             panier.splice(index, 1);
         }
-        
     }
 
     // Sauvegarde le nouveau localStorage
@@ -102,7 +97,9 @@ function removeProduit(id) {
 // Fonction qui permet de crée la facture en HTML
 function factureHTML() {
     // ===== Facture ===== //
-
+    let prixHT = 0;
+    let prixTTC = 0;
+    let taxe = 0;
     const factureDom = document.querySelector('.factures');
 
     let facture = document.createElement('div');
@@ -133,7 +130,29 @@ function factureHTML() {
         </ul>
         `
         facture.appendChild(factureArticle);
+
+        // Calculer le prix total
+        prixHT += element.price;
+        prixHT *= element.number;
     });
+    // Calcule de la taxe
+    taxe += (prixHT * 20) / 100; 
+
+    // Calcule du prix TTC
+    prixTTC = prixHT + taxe;
+
+    // Creation affichage du prix en HTML
+
+    let prixDom = document.createElement('div');
+    prixDom.className = 'textFacture__prix';
+    prixDom.innerHTML = `
+    <div>
+        <p class="textFacture__prix__element">Prix HT: ${prixHT} Euros</p>
+        <p class="textFacture__prix__element">Prix TTC: ${prixTTC} Euros</p>
+    </div>
+    <button>Commander</button>
+    `
+    facture.appendChild(prixDom);
 }
 
 // =============================================== //
