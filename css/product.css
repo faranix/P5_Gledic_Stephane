@@ -42,16 +42,19 @@ main {
         margin-top: 5%;
         width: 100%; }
 
+#button-lien {
+  margin-left: 60%; }
+
 #button-panier {
   font-family: 'Alegreya', Arial, Helvetica, sans-serif;
+  width: 100%;
   padding: 10px;
   font-size: 1.2rem;
   border-radius: 10px;
   border: solid 1px black;
   background-color: #fff;
   box-shadow: 0px 0px 5px -2px;
-  cursor: pointer;
-  margin-left: 60%; }
+  cursor: pointer; }
   #button-panier:hover {
     background-color: black;
     color: #fff;

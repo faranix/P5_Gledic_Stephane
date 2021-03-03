@@ -1,5 +1,8 @@
 // =============== Variable ============== //
-$base-color: #c6538c;
+$primary-color: #f2a154; 
+$secondary-color: #314e52;
+$grey-color: #e7e6e1;
+$white-color: #f7f6e7;
 
 // =============== Import ============== //
 
@@ -27,36 +30,43 @@ li {
   list-style: none;
 }
 
+body {
+  background: url(/images/bg.jpg) no-repeat fixed;
+  background-size: cover;
+  height: 100vh
+  
+}
+
 // =============== HEADER ============== //
 
 header {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  height: 350px;
   position: relative;
-  padding: 25px 0;
+  padding: 25px 50px;
   width: 100%;
   box-shadow: 0px 0px 20px 0px;
-  
 }
 
     // ~~~~~~~~~~~ LOGO ~~~~~~~~~~~ //
 
 h1 {
   @include fonts;
-  margin-bottom: 15px;
   justify-items: center;
   font-weight: bold;
   font-style: italic;
-  font-size: 5rem;  
+  font-size: 8rem;  
+  color: $primary-color;
+  text-shadow: 10px 5px black;
 }
 
     // ~~~~~~~~~~~ MENU ~~~~~~~~~~~ //
 
 nav {
-  position: absolute;
-  top: 70%;
-  width: 100%;
-  
+ color: $primary-color;
+ width: 50%;
+ margin-top: 90px;
 }
 
 .menu {
@@ -72,7 +82,7 @@ nav {
     cursor: pointer;
 
     &:hover {
-      opacity: 0.5;
+      color: $grey-color;
       transition: all 400ms;
     }
   }
@@ -86,6 +96,10 @@ nav {
 
     // ~~~~~~~~~~~ ARTICLE ~~~~~~~~~~~ //
 
+main {
+  background-color: $white-color;
+}
+
 
 #article {
   @include fonts;
@@ -94,14 +108,14 @@ nav {
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(2, 1fr);
   padding: 20px;
-  margin-bottom: 15px;
 }
 
 .article__box {
   display: flex;
   margin: 20px;
   padding: 5px 5px;
-  background-color: #fff;
+  background-color: $secondary-color;
+  color: $primary-color;
   height: 300px;
   border-radius: 5px;
   box-shadow: 2px 2px 20px -8px;
@@ -170,12 +184,35 @@ nav {
   transition: opacity 3500ms;
 }
 
+  // ==== POPULAIRE ==== //
+
+#populaire {
+  margin-top: 50px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  box-shadow: 2px -20px 10px $secondary-color; // Test 
+
+  height: 500px;    // temporaire
+  background-color: $secondary-color;
+  
+}
+
+.populaire__box {
+  color: $primary-color;
+  padding: 30px;
+
+  &__title {
+    font-size: 2rem;
+    text-shadow: 5px 2px black;
+  }
+}
+
 
 // =============== FOOTER ============== //
 
 footer {
   @include fonts;
-  background-color: black;
+  color: $primary-color;
   height: 200px;
   box-shadow: inset 0px 10px 10px -9px #fff;
   padding-top: 30px;
@@ -186,12 +223,16 @@ footer {
     font-size: 4rem;
     font-weight: bold;
     font-style: italic;
-    color: #fff; 
+    color: $primary-color; 
+    text-shadow: 10px 5px black;
   }
 
   .footer__text {
     @include flexmid;
-    color: #fff;
+
+    &:hover {
+      color: $grey-color;
+    }
   }
 }
 

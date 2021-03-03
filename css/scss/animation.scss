@@ -21,3 +21,23 @@
         opacity: 1;
     }
 }
+
+@keyframes overlayOpen {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 0.9;
+    }
+}
+
+@keyframes overlayClose {
+    from {
+        opacity: 0.9;
+    }
+
+    to {
+        opacity: 0;
+    }
+}

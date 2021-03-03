@@ -1,11 +1,12 @@
 // =============== API ============== //
 
-// Fonction qui permet d'appeler les produits de API
+/**
+ * Permet d'appeler les produits de API
+ */
 async function getProductsFromApi() {
   await fetch('http://localhost:3000/api/cameras/')
     .then(res => {
       res.json().then(products => {
-        console.log(products);
         createHtml(products);
       })
     })
@@ -13,9 +14,12 @@ async function getProductsFromApi() {
 
 getProductsFromApi();
 
-// Fonction qui permet de crée HTML avec les données reçu 
+/**
+ * Permet de crée HTML avec les données reçu 
+ * @param {*} data 
+ */
 function createHtml(data) {
-
+  console.log(data);
   // Creation des articles dans une boucle forEach
   data.forEach(element => {
     let box = document.createElement('div');
@@ -28,10 +32,24 @@ function createHtml(data) {
         </div>
     `;
     article.appendChild(box);
-    console.log('box', box);
   });
-  console.log(document.body);
+
+  // Html du populaire
+  let populaire = document.createElement('div');
+  populaire.className = 'populaire__box';
+  populaire.innerHTML = `
+    <h3 class="populaire__box__title">Populaire</h3>
+    <div class="populaire__box__article">
+      <img src="" class="populaire__box__article__img">
+      <p class="populaire__box__article__name">${data[3].name}</p>
+      <p class="populaire__box__article__description">${data[3].description}</p>
+      <p class="populaire__box__article__prix">${data[3].price} euros</p>       
+    </div>
+  `
+  document.querySelector('#populaire').appendChild(populaire);
+
 }
+
 
 
 

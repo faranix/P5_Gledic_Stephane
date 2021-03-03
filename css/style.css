@@ -9,6 +9,16 @@
     opacity: 0.8; }
   100% {
     opacity: 1; } }
+@keyframes overlayOpen {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 0.9; } }
+@keyframes overlayClose {
+  from {
+    opacity: 0.9; }
+  to {
+    opacity: 0; } }
 * {
   margin: 0;
   padding: 0;
@@ -24,26 +34,33 @@ a {
 li {
   list-style: none; }
 
+body {
+  background: url(/images/bg.jpg) no-repeat fixed;
+  background-size: cover;
+  height: 100vh; }
+
 header {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  height: 350px;
   position: relative;
-  padding: 25px 0;
+  padding: 25px 50px;
   width: 100%;
   box-shadow: 0px 0px 20px 0px; }
 
 h1 {
   font-family: 'Alegreya', Arial, Helvetica, sans-serif;
-  margin-bottom: 15px;
   justify-items: center;
   font-weight: bold;
   font-style: italic;
-  font-size: 5rem; }
+  font-size: 8rem;
+  color: #f2a154;
+  text-shadow: 10px 5px black; }
 
 nav {
-  position: absolute;
-  top: 70%;
-  width: 100%; }
+  color: #f2a154;
+  width: 50%;
+  margin-top: 90px; }
 
 .menu {
   display: flex;
@@ -55,22 +72,25 @@ nav {
     margin: 10px;
     cursor: pointer; }
     .menu__element:hover {
-      opacity: 0.5;
+      color: #e7e6e1;
       transition: all 400ms; }
+
+main {
+  background-color: #f7f6e7; }
 
 #article {
   font-family: 'Alegreya', Arial, Helvetica, sans-serif;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  padding: 20px;
-  margin-bottom: 15px; }
+  padding: 20px; }
 
 .article__box {
   display: flex;
   margin: 20px;
   padding: 5px 5px;
-  background-color: #fff;
+  background-color: #314e52;
+  color: #f2a154;
   height: 300px;
   border-radius: 5px;
   box-shadow: 2px 2px 20px -8px; }
@@ -115,9 +135,24 @@ nav {
   opacity: 1;
   transition: opacity 3500ms; }
 
+#populaire {
+  margin-top: 50px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  box-shadow: 2px -20px 10px #314e52;
+  height: 500px;
+  background-color: #314e52; }
+
+.populaire__box {
+  color: #f2a154;
+  padding: 30px; }
+  .populaire__box__title {
+    font-size: 2rem;
+    text-shadow: 5px 2px black; }
+
 footer {
   font-family: 'Alegreya', Arial, Helvetica, sans-serif;
-  background-color: black;
+  color: #f2a154;
   height: 200px;
   box-shadow: inset 0px 10px 10px -9px #fff;
   padding-top: 30px; }
@@ -127,11 +162,13 @@ footer {
     font-size: 4rem;
     font-weight: bold;
     font-style: italic;
-    color: #fff; }
+    color: #f2a154;
+    text-shadow: 10px 5px black; }
   footer .footer__text {
     display: flex;
     justify-content: center;
-    align-items: center;
-    color: #fff; }
+    align-items: center; }
+    footer .footer__text:hover {
+      color: #e7e6e1; }
 
 /*# sourceMappingURL=style.css.map */

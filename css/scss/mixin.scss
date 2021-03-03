@@ -16,3 +16,11 @@
   cursor: pointer;
   transition: all 400ms;
 }
+
+
+@mixin animationBtn1 {
+  background-color: black;
+  color: #fff;
+  transition: all 200ms;
+}
+

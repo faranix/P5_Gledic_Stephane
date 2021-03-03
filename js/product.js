@@ -1,7 +1,9 @@
 const id = getIdFromParam();    // stocker id dans une variable
 let product = null;
 
-// Fonction qui permet de recuperer les data de api.
+/**
+ * Permet de recuperer les data de api.
+ */
 async function getProductFromApi() {
     await fetch('http://localhost:3000/api/cameras/' + id)  // Ajout de id pour selectionner que le produit cibler 
         .then(res => {
@@ -14,7 +16,10 @@ async function getProductFromApi() {
 
 getProductFromApi();
 
-// Fonction qui permet de recuperer id du produit actuel
+/**
+ * Permet de recuperer id du produit actuel
+ * @param {*} id 
+ */
 function getIdFromParam(id) {
     // Stocker le parametre trouver dans une variable
     const url = window.location.search;
@@ -30,7 +35,10 @@ function getIdFromParam(id) {
     }
 }
 
-// Fonction qui permet de crée HTML selon les data retourner 
+/**
+ * Permet de crée HTML selon les data retourner 
+ * @param {*} data 
+ */
 function createHTML(data) {
     if(id == data._id) {
         const box = document.querySelector('#box');
@@ -72,9 +80,9 @@ function createHTML(data) {
                             <option value="rouge">Rouge</option>
                         </select>
                     </form>
-                    <button type="submit" value="submit" id="button-panier" onclick="addToPanier()">
-                        <a href="../pages/panier.html">Mettre au Panier</a>
-                    </button>
+                    <a id="button-lien" href="../pages/panier.html">
+                    <button id="button-panier" type="submit" value="submit" onclick="addToPanier()">Mettre au Panier</button>
+                    </a>
                 </div>
 
             </div>
@@ -91,8 +99,9 @@ function createHTML(data) {
 }
 
 
-
-// Fonction qui permet d'ajouter le produit au local storage.
+/**
+ * Permet d'ajouter le produit au localstorage.
+ */
 function addToPanier() {
     // Recuperation des informations manquante.
     let number = document.querySelector('#nombre');
@@ -106,6 +115,7 @@ function addToPanier() {
         panier = JSON.parse(localStorage.getItem('panier')) || [];
         // Creation du produit
         panier.push({
+            uniqueid : new Date().getTime(),
             number : number.value,
             color : color.value,
             image : product.imageUrl,

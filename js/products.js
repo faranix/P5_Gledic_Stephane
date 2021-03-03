@@ -1,7 +1,9 @@
 // =============== API ============== //
 const article = document.querySelector('#article');
 
-// Fonction qui permet d'appeler les produits de API
+/**
+ * Permet d'appeler les produits de API
+ */
 async function getProductsFromApi() {
   await fetch('http://localhost:3000/api/cameras/')
     .then(res => {
@@ -13,7 +15,10 @@ async function getProductsFromApi() {
 
 getProductsFromApi();
 
-// Fonction qui permet de crée HTML avec les données reçu 
+/**
+ * Permet de crée HTML avec les données reçu 
+ * @param {*} data 
+ */
 function createHtml(data) {
     
     // Creation des articles dans une boucle forEach
@@ -21,7 +26,7 @@ function createHtml(data) {
     let box = document.createElement('div');
     box.className = 'article__box';
     box.innerHTML = `
-      <a href="product.html" class="article__box__lien"><img src="${element.imageUrl}" class="article__box__img"></a>
+      <img src="${element.imageUrl}" class="article__box__img">
       <div class="article__box__info">
           <p class="article__box__info__name">${element.name}</p>
           <p class="article__box__info__description">${element.description}</p>
