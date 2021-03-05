@@ -1,3 +1,4 @@
+
 // Création d'une boucle qui crée le html selon le panier reçu
 let panier = JSON.parse(localStorage.getItem('panier'));
 
@@ -51,7 +52,6 @@ function createHtml() {
                         </div>
                 </div>
             `;
-            console.log(produit);
             produits.appendChild(produit);
         });
 
@@ -189,59 +189,60 @@ function reloadFacture() {
 };
 
 
+/**
+ * Permet d'ouvir l'overlay
+ */
+function overlayCommande() {
+    document.querySelector('.overlay').style.display = "flex"
+}
+
+/**
+ * Permet de fermer l'overlay
+ */
+function closeOverlay() {
+    document.querySelector('.overlay').style.display = "none"
+}
 
 // === TEST === //
 
-// Creation d'une overbox pour le formulaire 
 
-function overlayCommande() {
-    // Fond noir
-    let overlay = document.createElement('div');
-    overlay.className = "overlay";
-    document.body.appendChild(overlay);
+async function postData() {
+    document.querySelector('.overlay__box__formulaire').addEventListener('click', (e) => {
+        e.preventDefault();
+    })
 
-    let overlayBox = document.createElement('div');
-    overlayBox.className = 'overlay__box';
-    overlayBox.innerHTML = `
-        <i class="fas fa-times overlay__box__close" onclick="closeOverlay()"></i>
-        <h3 class="overlay__box__title">Formulaire de commande</h3>
-        <div class="overlay__box__formulaire">
-            <div>
-                <input type="text" name="firstName" id="firstName" placeholder="Votre Nom"></input>
-                <input type="text" name="lastName" id="lastName" placeholder="Votre Prénom"></input>
-            </div>
-            <form>
-                <input type="email" name="email" id="email" placeholder="Votre Email"></input>
-                <input type="email" name="email2" id="email2" placeholder="Confirmer Votre Email"></input>
-                <input type="text" name="address" id="address" placeholder="Votre Adresse"></input>
-                <input type="text" name="city" id="city" placeholder="Votre Ville"></input>
-                <input type="submit" onclick="postData(${panier})" name="validation" id="validation" value="Valider"></input>
-            </form>
-        </div>
-    `
-    overlay.appendChild(overlayBox);
+    let contact = {
+        contact: {
+            firstName: document.querySelector('#firstName').value,
+            lastName: document.querySelector('#lastName').value,
+            address: document.querySelector('#address').value,
+            city: document.querySelector('#city').value,
+            email: document.querySelector('#email').value
+        },
+        products: []
+    };
+    
+    panier.forEach(element => {
+        contact.products.push(element.id);
+    })
+    localStorage.setItem('contact', JSON.stringify(contact));
 
-}
-
-function closeOverlay() {
-    let overlay = document.querySelector('.overlay');
-    overlay.style.animation = "overlayClose 400ms";
-
-    // Pour attendre que animation ce finis.
-    setTimeout(() => {
-        overlay.remove()
-    }, 400);
-}
-
-function postData(panier) {
-    console.log(panier);
-    const response = fetch('http://localhost:3000/api/cameras/order', {
+    await fetch('http://localhost:3000/api/cameras/order', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(panier)
-    })
+        body: JSON.stringify(contact)
 
-    return response;
+    })
+    .then(res => {
+        res.json().then(data => {
+            localStorage.getItem('contact');
+        })
+    })
+    .catch(err => {
+        console.log("Une erreur c'est produit !");
+    });
 }
+
+postData();

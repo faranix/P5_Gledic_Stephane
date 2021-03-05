@@ -42,6 +42,25 @@
                 <!-- Code html pour la facture en JS -->
               </div>
             </div>
+
+            <!-- Overlay -->
+            <div class="overlay">
+                <div class="overlay__box">
+                  <i class="fas fa-times overlay__box__close" onclick="closeOverlay()"></i>
+                  <h3 class="overlay__box__title">Formulaire de commande</h3>
+                      <form class="overlay__box__formulaire">
+                          <div>
+                            <input type="text" name="firstName" id="firstName" placeholder="Votre Nom"></input>
+                            <input type="text" name="lastName" id="lastName" placeholder="Votre Prénom"></input>
+                          </div>
+                          <input type="email" name="email" id="email" placeholder="Votre Email"></input>
+                          <input type="email" name="email2" id="email2" placeholder="Confirmer Votre Email"></input>
+                          <input type="text" name="address" id="address" placeholder="Votre Adresse"></input>
+                          <input type="text" name="city" id="city" placeholder="Votre Ville"></input>
+                          <input type="submit" onclick="postData()" name="validation" id="validation" value="Valider"></input>
+                      </form>
+                </div>
+            </div>
           </main>
 
           <footer>
