@@ -205,13 +205,57 @@ function closeOverlay() {
 
 // === TEST === //
 
+/**
+ * Permet de verifier si tout les champs du formulaire sont valide
+ */
+function formulaireVerification() {
+    // Recuperation des elements
+    let formulaire = document.querySelector('.overlay__box__formulaire');
+    let formulaireMessage = document.querySelector('.overlay__box__formulaire__message');
+    let email = document.querySelector('#email');
+    let emailVerification = document.querySelector('#email2');
+
+    // Creation d'une variable qui stock le nombre d'enfant des message d'erreur
+    let nombreDeMessageErreur = formulaireMessage.childNodes;
+
+    // Creation du message
+    let messageForm = document.createElement('p');
+
+
+    for (let i = 0; i < formulaire.length - 1; i++) {   // le - 1 c'est pour retirer le boutton
+
+        
+        if (formulaire[i].value == '') {
+            messageForm.innerHTML = "Veuillez renseignez tout les champs";    
+            formulaireMessage.appendChild(messageForm);
+        } else {
+            messageForm.innerHTML = "";
+            formulaireMessage.appendChild(messageForm);
+        }
+
+        if (nombreDeMessageErreur.length > 1) {
+            nombreDeMessageErreur[i].remove();
+        } 
+
+    }
+
+
+    // ======= En Cours ========
+    if (email.value !== emailVerification.value) {
+        console.log('email differente');
+    }
+}
+
 
 async function postData() {
-    document.querySelector('.overlay__box__formulaire').addEventListener('click', (e) => {
+    let formulaire = document.querySelector('.overlay__box__formulaire');
+    
+    formulaire.addEventListener('submit', (e) => {
         e.preventDefault();
+        formulaireVerification();
     })
 
-    let contact = {
+    let dataOrder = {
         contact: {
             firstName: document.querySelector('#firstName').value,
             lastName: document.querySelector('#lastName').value,
@@ -223,26 +267,24 @@ async function postData() {
     };
     
     panier.forEach(element => {
-        contact.products.push(element.id);
+        dataOrder.products.push(element.id);
     })
-    localStorage.setItem('contact', JSON.stringify(contact));
+    localStorage.setItem('dataOrder', JSON.stringify(dataOrder));
 
     await fetch('http://localhost:3000/api/cameras/order', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(contact)
+        body: JSON.stringify(dataOrder)
 
     })
     .then(res => {
         res.json().then(data => {
-            localStorage.getItem('contact');
+            localStorage.getItem('dataOrder');
         })
     })
     .catch(err => {
         console.log("Une erreur c'est produit !");
     });
 }
-
-postData();
