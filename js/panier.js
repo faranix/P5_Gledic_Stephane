@@ -70,7 +70,6 @@ function createHtml() {
 
 createHtml();
 
-
 /**
  * Permet de supprimer tout le panier. 
  */
@@ -84,8 +83,6 @@ function removeAllPanier() {
     }
     showEmptyMessage();
 };
-
-
 
 /**
  * Permet de supprimer un produit cibler.
@@ -193,27 +190,26 @@ function reloadFacture() {
  * Permet d'ouvir l'overlay
  */
 function overlayCommande() {
-    document.querySelector('.overlay').style.display = "flex"
+    document.querySelector('.overlay').style.display = "flex";
 }
 
 /**
  * Permet de fermer l'overlay
  */
 function closeOverlay() {
-    document.querySelector('.overlay').style.display = "none"
+    document.querySelector('.overlay').style.display = "none";
 }
 
-// === TEST === //
-
 /**
- * Permet de verifier si tout les champs du formulaire sont valide
+ * Permet de verifier si tout les champs du formulaire sont valide.
  */
 function formulaireVerification() {
     // Recuperation des elements
     let formulaire = document.querySelector('.overlay__box__formulaire');
     let formulaireMessage = document.querySelector('.overlay__box__formulaire__message');
     let email = document.querySelector('#email');
-    let emailVerification = document.querySelector('#email2');
+    let email2 = document.querySelector('#email2');
+    
 
     // Creation d'une variable qui stock le nombre d'enfant des message d'erreur
     let nombreDeMessageErreur = formulaireMessage.childNodes;
@@ -229,22 +225,23 @@ function formulaireVerification() {
             messageForm.innerHTML = "Veuillez renseignez tout les champs";    
             formulaireMessage.appendChild(messageForm);
         } else {
-            messageForm.innerHTML = "";
-            formulaireMessage.appendChild(messageForm);
+            if (email.value != email2.value) {
+                console.log('email differente');
+                messageForm.innerHTML = "Email Invalide";
+                formulaireMessage.appendChild(messageForm);
+            } else {
+                messageForm.innerHTML = "";
+                formulaireMessage.appendChild(messageForm);
+            }
         }
-
-        if (nombreDeMessageErreur.length > 1) {
+        
+        if (nombreDeMessageErreur.length > 0) {
             nombreDeMessageErreur[i].remove();
-        } 
-
-    }
-
-
-    // ======= En Cours ========
-    if (email.value !== emailVerification.value) {
-        console.log('email differente');
+        }
     }
 }
+
+// ======= En Cours ======== //
 
 
 async function postData() {

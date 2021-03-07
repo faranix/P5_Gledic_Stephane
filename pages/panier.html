@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,7 +48,7 @@
                 <div class="overlay__box">
                   <i class="fas fa-times overlay__box__close" onclick="closeOverlay()"></i>
                   <h3 class="overlay__box__title">Formulaire de commande</h3>
-                      <form class="overlay__box__formulaire">
+                      <form method="POST" action="commande.html" class="overlay__box__formulaire">
                           <div>
                             <input type="text" name="firstName" id="firstName" placeholder="Votre Nom"></input>
                             <input type="text" name="lastName" id="lastName" placeholder="Votre Prénom"></input>
@@ -57,7 +57,7 @@
                           <input type="email" name="email2" id="email2" placeholder="Confirmer Votre Email"></input>
                           <input type="text" name="address" id="address" placeholder="Votre Adresse"></input>
                           <input type="text" name="city" id="city" placeholder="Votre Ville"></input>
-                          <input type="submit" onclick="postData()" name="validation" id="validation" value="Valider"></input>
+                          <input type="submit" href="commande.html" onclick="postData()" name="validation" id="validation" value="Valider"></input>
                       </form>
                   <div class="overlay__box__formulaire__message"></div>
                 </div>
