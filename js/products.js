@@ -31,7 +31,7 @@ function createHtml(data) {
           <p class="article__box__info__name">${element.name}</p>
           <p class="article__box__info__description">${element.description}</p>
           <div class="article__box__info__achat">
-          <p class="article__box__info__achat__prix">${element.price} euros</p>
+          <p class="article__box__info__achat__prix">Prix: ${element.price} euros</p>
 
           <div class="article__box__info__achat__panier">
               <a href="product.html?id=${element._id}"><button class="article__box__info__achat__panier__btn">Plus D'information</button></a>

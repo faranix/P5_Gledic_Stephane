@@ -89,7 +89,6 @@ nav {
 
 }
 
-
 // =============== MAIN ============== //
 
     // ~~~~~~~~~~~ PRESENTATION ~~~~~~~~~~~ //
@@ -268,8 +267,6 @@ main {
   }
 }
 
-
-
 // =============== FOOTER ============== //
 
 footer {
@@ -298,10 +295,7 @@ footer {
   }
 }
 
-
 // ===== MEDIA QUERY ===== //
-
-  // ~~~~~ 768px ~~~~~ //
 
 @media screen and (max-width: 768px) {
 
@@ -354,9 +348,55 @@ footer {
     height: 500px;
   }
 
+  .populaire__box__allarticle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .populaire__box__allarticle__article__img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   // Populaire
 
   .populaire__box__allarticle__article {
     flex-direction: column;
+  }
+
+  // Presentation des articles 
+
+  .article__box__info {
+    margin: 0px;
+    padding: 10px;
+    padding-top: 0px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  
+  // Presentation
+
+  .populaire__box__allarticle__article__img {
+    margin: 5px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  
+  // Presentation
+
+  #presentation {
+    height: 600px;
+  }
+
+  .populaire__box__allarticle__article__img {
+    margin: 0px;
+  }
+
+  .article__box__info__description {
+    font-size: 0.9rem;
   }
 }
