@@ -90,9 +90,33 @@ nav {
 }
 
 
-
-
 // =============== MAIN ============== //
+
+    // ~~~~~~~~~~~ PRESENTATION ~~~~~~~~~~~ //
+
+#presentation {
+  @include fonts;
+  background-color: $white-color;
+  height: 300px;
+}
+
+.presentation__box {
+  padding: 0px 30px;
+  padding-top: 50px;
+
+  &__title {
+    font-size: 2.5rem;
+    color: $primary-color;
+    text-shadow: 2px 1px black;
+    margin-bottom: 40px;
+  }
+
+  &__text {
+    font-size: 1.1rem;
+    color: $secondary-color;
+    padding: 5px 0;
+  }
+}
 
     // ~~~~~~~~~~~ ARTICLE ~~~~~~~~~~~ //
 
@@ -184,15 +208,10 @@ main {
   transition: opacity 3500ms;
 }
 
-  // ==== POPULAIRE ==== //
+    // ~~~~~~~~~~~ POPULAIRE ~~~~~~~~~~~ //
 
 #populaire {
   margin-top: 50px;
-  border-top-left-radius: 50px;
-  border-top-right-radius: 50px;
-  box-shadow: 2px -20px 10px $secondary-color; // Test 
-
-  height: 500px;    // temporaire
   background-color: $secondary-color;
   
 }
@@ -202,10 +221,53 @@ main {
   padding: 30px;
 
   &__title {
-    font-size: 2rem;
-    text-shadow: 5px 2px black;
+    font-size: 2.5rem;
+    text-shadow: 2px 1px black;
+  }
+
+  &__allarticle {
+    
+    &__article {
+      display: flex;
+      flex-direction: row-reverse;
+      margin: 50px;
+      color: $white-color;
+
+      & div {
+        text-align: center;
+        padding: 3% 0;
+
+        .populaire__box__allarticle__article__name {
+          font-size: 1.5rem;
+          font-weight: bold;
+        }
+
+        & p {
+          padding: 3px;
+        }
+      }
+
+      &__img {
+        width: 200px;
+        padding: 5px;
+        margin-left: 10%
+      }
+    }
+
+    .populaire__box__allarticle__article__btn {
+      @include fonts;
+      cursor: pointer;
+      padding: 10px 20px;
+      background-color: $primary-color;
+      color: $secondary-color;
+
+      &:hover {
+        opacity: 0.9;
+      }
+    }
   }
 }
+
 
 
 // =============== FOOTER ============== //
@@ -236,3 +298,65 @@ footer {
   }
 }
 
+
+// ===== MEDIA QUERY ===== //
+
+  // ~~~~~ 768px ~~~~~ //
+
+@media screen and (max-width: 768px) {
+
+  #article {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .article__box:nth-child(4) {
+    max-width: 100%;
+  }
+
+  .article__box__info {
+    text-align: center;
+
+    &__name {
+      margin-top: 20px;
+    }
+
+    &__description {
+      margin-top: 20%;
+    }
+  }
+}
+
+
+@media screen and (max-width: 425px) {
+
+  // Header
+
+  header {
+    padding: 0;
+    height: 200px;
+  }
+
+  #logo {
+    display: flex;
+    justify-content: center;
+    font-size: 5rem; 
+  }
+
+  nav {
+    margin-top: 30px;
+    width: 100%;
+  }
+
+  // Presentation 
+
+  #presentation {
+    height: 500px;
+  }
+
+  // Populaire
+
+  .populaire__box__allarticle__article {
+    flex-direction: column;
+  }
+}

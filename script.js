@@ -34,22 +34,32 @@ function createHtml(data) {
     article.appendChild(box);
   });
 
-  // Html du populaire
-  let populaire = document.createElement('div');
-  populaire.className = 'populaire__box';
-  populaire.innerHTML = `
-    <h3 class="populaire__box__title">Populaire</h3>
-    <div class="populaire__box__article">
-      <img src="" class="populaire__box__article__img">
-      <p class="populaire__box__article__name">${data[3].name}</p>
-      <p class="populaire__box__article__description">${data[3].description}</p>
-      <p class="populaire__box__article__prix">${data[3].price} euros</p>       
-    </div>
-  `
-  document.querySelector('#populaire').appendChild(populaire);
+  // Creation des articles de la section populaire 
 
+  // recuperation des elements 
+  let allArticle = document.querySelector('.populaire__box__allarticle');
+
+  for (let i = 2; i < 4; i++) {
+    let articlePopulaire = document.createElement('div');
+    articlePopulaire.className = "populaire__box__allarticle__article";
+    articlePopulaire.innerHTML = `
+      <img src="${data[i].imageUrl}" class="populaire__box__allarticle__article__img">
+      <div>
+        <p class="populaire__box__allarticle__article__name">${data[i].name}</p>
+        <hr>
+        <p class="populaire__box__allarticle__article__description">${data[i].description}</p>
+        <p class="populaire__box__allarticle__article__prix">${data[i].price} euros</p>
+        <div class="article__box__info__achat__panier">
+              <a href="pages/product.html?id=${data[i]._id}">
+                <button class="populaire__box__allarticle__article__btn">Plus D'information</button>
+              </a>
+          </div>
+      </div>
+    `
+    allArticle.appendChild(articlePopulaire);
+  }
 }
-
+    
 
 
 

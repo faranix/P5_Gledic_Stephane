@@ -1,0 +1,40 @@
+// =============== Variable ============== //
+$primary-color: #f2a154; 
+$secondary-color: #314e52;
+$grey-color: #e7e6e1;
+$white-color: #f7f6e7;
+
+// =============== Import ============== //
+
+@import 'mixin.scss', 'animation.scss';
+
+
+// ==== MAIN ==== // 
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+}
+
+// ~~~~ ORDER ~~~~ //
+
+.order {
+    height: 80%;
+    width: 80%;
+    padding: 15px;
+    color: $secondary-color;
+
+
+    &__title {
+        @include fonts;
+    }
+
+    &__info {
+        padding: 10px;
+        &__numero {
+            margin-top: 20px;
+        }
+    }
+}

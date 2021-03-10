@@ -1,4 +1,3 @@
-
 // Création d'une boucle qui crée le html selon le panier reçu
 let panier = JSON.parse(localStorage.getItem('panier'));
 
@@ -185,7 +184,6 @@ function reloadFacture() {
     factureHTML();
 };
 
-
 /**
  * Permet d'ouvir l'overlay
  */
@@ -200,57 +198,23 @@ function closeOverlay() {
     document.querySelector('.overlay').style.display = "none";
 }
 
-/**
- * Permet de verifier si tout les champs du formulaire sont valide.
- */
-function formulaireVerification() {
-    // Recuperation des elements
-    let formulaire = document.querySelector('.overlay__box__formulaire');
-    let formulaireMessage = document.querySelector('.overlay__box__formulaire__message');
-    let email = document.querySelector('#email');
-    let email2 = document.querySelector('#email2');
-    
-
-    // Creation d'une variable qui stock le nombre d'enfant des message d'erreur
-    let nombreDeMessageErreur = formulaireMessage.childNodes;
-
-    // Creation du message
-    let messageForm = document.createElement('p');
+// ========= EN COURS ========= //
 
 
-    for (let i = 0; i < formulaire.length - 1; i++) {   // le - 1 c'est pour retirer le boutton
-
-        
-        if (formulaire[i].value == '') {
-            messageForm.innerHTML = "Veuillez renseignez tout les champs";    
-            formulaireMessage.appendChild(messageForm);
-        } else {
-            if (email.value != email2.value) {
-                console.log('email differente');
-                messageForm.innerHTML = "Email Invalide";
-                formulaireMessage.appendChild(messageForm);
-            } else {
-                messageForm.innerHTML = "";
-                formulaireMessage.appendChild(messageForm);
-            }
-        }
-        
-        if (nombreDeMessageErreur.length > 0) {
-            nombreDeMessageErreur[i].remove();
-        }
-    }
-}
 
 // ======= En Cours ======== //
 
-
+/**
+ * Permet d'envoyer les données de utilisateur pour avoir un orderId
+ */
 async function postData() {
     let formulaire = document.querySelector('.overlay__box__formulaire');
-    
-    formulaire.addEventListener('submit', (e) => {
-        e.preventDefault();
+
+    // Car sinon il y a une erreur du serveur.
+    formulaire.addEventListener('submit', (e) => { 
+        e.preventDefault();    
         formulaireVerification();
-    })
+    });
 
     let dataOrder = {
         contact: {
@@ -258,15 +222,13 @@ async function postData() {
             lastName: document.querySelector('#lastName').value,
             address: document.querySelector('#address').value,
             city: document.querySelector('#city').value,
-            email: document.querySelector('#email').value
+            email: document.querySelector('#email').value,
         },
         products: []
     };
-    
     panier.forEach(element => {
         dataOrder.products.push(element.id);
     })
-    localStorage.setItem('dataOrder', JSON.stringify(dataOrder));
 
     await fetch('http://localhost:3000/api/cameras/order', {
         method: 'POST',
@@ -277,11 +239,25 @@ async function postData() {
 
     })
     .then(res => {
-        res.json().then(data => {
-            localStorage.getItem('dataOrder');
-        })
+        if (res.ok) {
+            res.json().then(data => {
+                localStorage.setItem("Order", JSON.stringify(data));
+
+                document.querySelector('#validation').addEventListener('click', () => {
+                    let redirection = document.querySelector('#redirection');
+                    if (data == undefined || data == null) {
+                        redirection.addEventListener('click', (e) => {
+                            e.preventDefault();
+                        })
+                    } else {
+                        redirection.setAttribute('href', 'commande.html');
+                        redirection.click();
+                    }
+                })
+            })
+        }
     })
     .catch(err => {
-        console.log("Une erreur c'est produit !");
+        console.error("Une erreur c'est produit !");
     });
 }

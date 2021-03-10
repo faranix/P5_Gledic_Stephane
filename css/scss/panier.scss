@@ -220,13 +220,23 @@ button {
     }
 }
 
+
+
 #validation {
-    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
     cursor: pointer;
+    background-color: black;
 
     &:hover {
         background-color: #fff;
         color: black;
         transition: all 200ms;
     }
+}
+
+#redirection {
+    display: none;
 }
