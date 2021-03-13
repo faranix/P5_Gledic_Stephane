@@ -198,23 +198,10 @@ function closeOverlay() {
     document.querySelector('.overlay').style.display = "none";
 }
 
-// ========= EN COURS ========= //
-
-
-
-// ======= En Cours ======== //
-
 /**
  * Permet d'envoyer les données de utilisateur pour avoir un orderId
  */
 async function postData() {
-    let formulaire = document.querySelector('.overlay__box__formulaire');
-
-    // Car sinon il y a une erreur du serveur.
-    formulaire.addEventListener('submit', (e) => { 
-        e.preventDefault();    
-        formulaireVerification();
-    });
 
     let dataOrder = {
         contact: {
@@ -243,17 +230,7 @@ async function postData() {
             res.json().then(data => {
                 localStorage.setItem("Order", JSON.stringify(data));
 
-                document.querySelector('#validation').addEventListener('click', () => {
-                    let redirection = document.querySelector('#redirection');
-                    if (data == undefined || data == null) {
-                        redirection.addEventListener('click', (e) => {
-                            e.preventDefault();
-                        })
-                    } else {
-                        redirection.setAttribute('href', 'commande.html');
-                        redirection.click();
-                    }
-                })
+                window.location.href = 'commande.html';
             })
         }
     })
@@ -261,3 +238,10 @@ async function postData() {
         console.error("Une erreur c'est produit !");
     });
 }
+
+// Event Listener
+let formulaire = document.querySelector('.overlay__box__formulaire');
+
+formulaire.addEventListener('submit', (e) => { 
+    e.preventDefault();    
+});

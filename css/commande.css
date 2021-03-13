@@ -101,4 +101,23 @@ main {
 .order__info__numero {
   margin-top: 20px;
 }
+
+span {
+  color: #f2a154;
+}
+
+@media screen and (max-width: 375px) {
+  .order__title {
+    font-size: 1.3rem;
+  }
+  .order__info {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .order__title {
+    font-size: 1rem;
+  }
+}
 /*# sourceMappingURL=commande.css.map */

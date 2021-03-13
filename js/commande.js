@@ -1,5 +1,9 @@
 const dataOrder = JSON.parse(localStorage.getItem("Order"));
 
+if (dataOrder == null) {
+    window.location.href = '/';
+}
+
 /**
  * Permet de crée le bon de commande selon les data
  */
@@ -11,17 +15,17 @@ function orderHtml() {
     let email = document.querySelector('.order__info__email');
 
     // Creation des messages avec les data
-    numero.innerHTML = `Votre numero de commande: ${dataOrder.orderId}`;
+    numero.innerHTML = `Votre numero de commande: <span>${dataOrder.orderId}</span>.`;
     message.innerHTML = `
-        ${dataOrder.contact.lastName} ${dataOrder.contact.firstName}, 
+        <span>${dataOrder.contact.lastName} ${dataOrder.contact.firstName}</span>, 
         Orinoco vous remercie de la confiance que vous lui avez accordé !`;
 
     adresse.innerHTML = `
         Vos articles arriveront prochainement à l'adresse fournir 
-        aux ${dataOrder.contact.address} a ${dataOrder.contact.city}.`;
+        aux <span>${dataOrder.contact.address} a ${dataOrder.contact.city}</span>.`;
 
     email.innerHTML = `
-    Un email vous sera envoyer a email fournis ${dataOrder.contact.email}`;
+    Un email vous sera envoyer a email fournis: <span>${dataOrder.contact.email}</span>.`;
 }
 
 orderHtml();

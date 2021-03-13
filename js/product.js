@@ -54,7 +54,7 @@ function createHTML(data) {
             </div>
             <div class="product__article__description">
                 <p class="product__article__description__text">${data.description}</p>
-                <p class="product__article__description__prix">${data.price} euros</p>
+                <p class="product__article__description__prix">Prix: ${data.price} euros</p>
                 
                 <div class="product__article__description__btn">
                     <form id="form-1">

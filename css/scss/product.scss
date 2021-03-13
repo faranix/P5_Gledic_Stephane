@@ -1,4 +1,12 @@
-@import 'mixin.scss';
+// =============== Variable ============== //
+$primary-color: #f2a154; 
+$secondary-color: #314e52;
+$grey-color: #e7e6e1;
+$white-color: #f7f6e7;
+
+// =============== Import ============== //
+
+@import 'mixin.scss', 'animation.scss';
 
 // =============== MAIN ============== //
 
@@ -25,11 +33,14 @@ main {
         margin-left: 20px;
         box-shadow: 2px 2px 20px -8px;
         border-radius: 5px;
+        background-color: $white-color;
     
         &__title {
             @include flexmid;
             font-size: 2rem;
             margin: 5px 0;
+            color: $primary-color;
+            text-shadow: $secondary-color 3px 1px;
         }
     
         &__description {
@@ -38,6 +49,7 @@ main {
             align-items: center;
             padding: 0 30px;
             padding-top: 20%;
+            color: $secondary-color;
 
 
     
@@ -52,13 +64,14 @@ main {
                 margin-top: 10%;
                 font-size: 1.5rem;
                 font-weight: bold;
-                color: red
+                color: $primary-color;
             }
 
             &__btn {
                 display: flex;
+                justify-content: space-around;
+                width: 80%;
                 margin-top: 5%; 
-                width: 100%;
             }
         }
     }
@@ -74,11 +87,13 @@ main {
     width: 100%;
     padding: 10px;
     font-size: 1.2rem;
-    border-radius: 10px;
-    border: solid 1px black;
-    background-color: #fff;
+    border: solid 1px $grey-color;
+    background-color: $primary-color;
+    color: $secondary-color;
     box-shadow: 0px 0px 5px -2px;
     cursor: pointer;
+    white-space: nowrap;        
+
 
     &:hover {
         @include animationBtn1;
@@ -93,4 +108,84 @@ main {
 #color {
     font-size: 1rem;  
     padding: 10px; 
+}
+
+// ========== MEDIA QUERY ========== // 
+
+@media screen and (max-width: 1024px) {
+    .product__article__description__btn {
+        margin-top: 15%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .product__article__description__prix {
+        margin-top: 25%;
+    }
+
+    .product__article__description__btn {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 425px) {
+
+    .product {
+        flex-direction: column;
+
+        &__img {
+            width: 100%;
+            height: 20%;
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+        }
+
+        &__article {
+            width: 100%;
+            margin-left: 0px;
+            border-top-left-radius: 0px;
+            border-top-right-radius: 0px;
+        }
+    }
+
+    .product__article__description__btn {
+        width: 25%;
+    }
+}
+
+
+
+@media screen and (max-width:375px) {
+    
+    .product__article__description__btn {
+        margin-top: 60px;
+    }
+    #button-panier {
+        font-size: 12px;
+    }
+
+    #color {
+        font-size: 0.8rem;
+    }
+
+    #nombre {
+        font-size: 0.8rem;
+    }
+}
+
+
+@media screen and (max-width:320px) {
+    
+    #button-panier {
+        font-size: 10px;
+    }
+
+    #color {
+        font-size: 0.6rem;
+    }
+
+    #nombre {
+        font-size: 0.6rem;
+    }
 }
