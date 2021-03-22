@@ -47,7 +47,7 @@ function createHtml() {
                         <p class="product__information__container__description">${element.description}</p>
                         <div class="product__information__container__description">
                             <p class="product__information__container__description__lense">Lenses: ${element.lenses}</p>
-                            <p class="product__information__container__description__prix">Prix: ${element.price}</p>
+                            <p class="product__information__container__description__prix">Prix: ${element.price} euros</p>
                         </div>
                 </div>
             `;
@@ -73,13 +73,15 @@ createHtml();
  * Permet de supprimer tout le panier. 
  */
 function removeAllPanier() {
+    // Supprime le panier du local storage
     localStorage.removeItem('panier');
     let produit = document.querySelectorAll('.product');
 
-  
+    // Une boucle qui supprime tout les produits de html.
     for(let i = 0; i < produit.length; i++) {
         document.querySelector('.product').remove();
     }
+    // Afficher le message que le panier est bien vide.
     showEmptyMessage();
 };
 
@@ -201,7 +203,7 @@ function closeOverlay() {
 /**
  * Permet d'envoyer les données de utilisateur pour avoir un orderId
  */
-async function postData() {
+function postData() {
 
     let dataOrder = {
         contact: {
@@ -217,7 +219,7 @@ async function postData() {
         dataOrder.products.push(element.id);
     })
 
-    await fetch('http://localhost:3000/api/cameras/order', {
+    fetch('http://localhost:3000/api/cameras/order', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -226,25 +228,22 @@ async function postData() {
 
     })
     .then(res => {
-        if (res.ok) {
-            res.json().then(data => {
-                localStorage.setItem("Order", JSON.stringify(data));
+        res.json().then(data => {
+            localStorage.setItem("Order", JSON.stringify(data));
 
-                window.location.href = 'commande.html';
-            })
-        }
+            window.location.href = 'commande.html';
+        })
     })
     .catch(err => {
-        console.error("Une erreur c'est produit !");
+        showError(err.status);
     });
 }
 
-// ======= EN COURS DE CREATION ======= // 
 /**
  * Permet de lister les erreurs
  */
-function showError() {
-    switch (errorMessage) {
+function showError(errorCode) {
+    switch (errorCode) {
         case 401:
             console.log("utilisateur non authentifié");
             break;

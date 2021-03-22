@@ -3,11 +3,15 @@
 /**
  * Permet d'appeler les produits de API
  */
-async function getProductsFromApi() {
-  await fetch('http://localhost:3000/api/cameras/')
+function getProductsFromApi() {
+  fetch('http://localhost:3000/api/cameras/')
     .then(res => {
       res.json().then(products => {
         createHtml(products);
+      })
+      .catch(() => {
+        // Afficher l'erreur reçu.
+        showError(res.status);
       })
     })
 }
@@ -19,7 +23,7 @@ getProductsFromApi();
  * @param {*} data 
  */
 function createHtml(data) {
-  console.log(data);
+
   // Creation des articles dans une boucle forEach
   data.forEach(element => {
     let box = document.createElement('div');
@@ -35,8 +39,6 @@ function createHtml(data) {
   });
 
   // Creation des articles de la section populaire 
-
-  // recuperation des elements 
   let allArticle = document.querySelector('.populaire__box__allarticle');
 
   for (let i = 2; i < 4; i++) {
@@ -61,7 +63,37 @@ function createHtml(data) {
 }
     
 
-
+/**
+ * fonction qui permet de trouvais l'erreur attribuer et envoyer un message en retour
+ * @param {*} errorCode 
+ */
+ function showError(errorCode) {
+   // Utilisation d'un switch pour lister les different cas d'erreur.
+  switch (errorCode) {
+      case 401:
+          console.log("utilisateur non authentifié");
+          break;
+      case 403:
+          console.log("accès refusé");
+          break;
+      case 404:
+          console.log("page non trouvée");
+          break;
+      case 500:
+          console.log("erreur serveur");
+          break;
+      case 503:
+          console.log("erreur serveur");
+          break;
+      case 504:
+          console.log("le serveur n'a pas répondu");
+          break;
+  
+      default:
+          console.log("Une erreur vient d'arriver");
+          break;
+  }
+}
 
 
 

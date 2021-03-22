@@ -1,5 +1,6 @@
 const dataOrder = JSON.parse(localStorage.getItem("Order"));
 
+// Permet de renvoyer l'utilisateur sur la page d'acceuil si il y a pas d'order 
 if (dataOrder == null) {
     window.location.href = '/';
 }
