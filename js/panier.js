@@ -205,42 +205,48 @@ function closeOverlay() {
  */
 function postData() {
 
-    let dataOrder = {
-        contact: {
-            firstName: document.querySelector('#firstName').value,
-            lastName: document.querySelector('#lastName').value,
-            address: document.querySelector('#address').value,
-            city: document.querySelector('#city').value,
-            email: document.querySelector('#email').value,
-        },
-        products: []
-    };
-    panier.forEach(element => {
-        dataOrder.products.push(element.id);
-    })
+    const regexValidator = regexTest(document.querySelector('#address').value);
 
-    fetch('http://localhost:3000/api/cameras/order', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(dataOrder)
-
-    })
-    .then(res => {
-        if (res.ok) {
-            res.json().then(data => {
-                localStorage.setItem("Order", JSON.stringify(data));
+    if (regexValidator === false) {
+        showError(0);
+    } else {
+        let dataOrder = {
+            contact: {
+                firstName: document.querySelector('#firstName').value,
+                lastName: document.querySelector('#lastName').value,
+                address: document.querySelector('#address').value,
+                city: document.querySelector('#city').value,
+                email: document.querySelector('#email').value,
+            },
+            products: []
+        };
+        panier.forEach(element => {
+            dataOrder.products.push(element.id);
+        })
     
-                window.location.href = 'commande.html';
-            })
-            .catch(() => {
+        fetch('http://localhost:3000/api/cameras/order', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(dataOrder)
+    
+        })
+        .then(res => {
+            if (res.ok) {
+                res.json().then(data => {
+                    localStorage.setItem("Order", JSON.stringify(data));
+        
+                    window.location.href = 'commande.html';
+                })
+                .catch(() => {
+                    showError(res.status);
+                });   
+            } else {
                 showError(res.status);
-            });   
-        } else {
-            showError(res.status);
-        }
-    })
+            }
+        })
+    }
 }
 
 // Event Listener

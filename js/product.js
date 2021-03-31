@@ -35,6 +35,7 @@ function getIdFromParam(id) {
     } else {
         // Split url pour garder que la valeur 
         id = url.split('=');
+        console.log(id);
         return id[1];
     }
 }

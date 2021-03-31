@@ -52,7 +52,7 @@
                           <input type="text" name="firstName" id="firstName" placeholder="Votre Nom" required></input>
                           <input type="text" name="lastName" id="lastName" placeholder="Votre Prénom" required></input>
                           <input type="email" name="email" id="email" placeholder="Votre Email" required></input>
-                          <input type="text" name="address" id="address" placeholder="Votre Adresse" required></input>
+                          <input type="text" pattern="^[0-9 ]+[A-Za-z]+[A-Za-z0-9 ]*$" name="address" id="address" placeholder="Votre Adresse" required></input>
                           <input type="text" name="city" id="city" placeholder="Votre Ville" required></input>
                           <input type="submit" onclick="postData()" name="validation" id="validation" value="Valider"></input>
                       </form>

@@ -28,3 +28,9 @@
             break;
     }
   }
+
+
+function regexTest(regexData) {
+    const regex = new RegExp('^[0-9 ]+[A-Za-z]+[A-Za-z0-9 ]*$');
+    return regex.test(regexData);
+}
