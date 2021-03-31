@@ -228,19 +228,24 @@ function postData() {
 
     })
     .then(res => {
-        res.json().then(data => {
-            localStorage.setItem("Order", JSON.stringify(data));
-
-            window.location.href = 'commande.html';
-        })
-        .catch(() => {
+        if (res.ok) {
+            res.json().then(data => {
+                localStorage.setItem("Order", JSON.stringify(data));
+    
+                window.location.href = 'commande.html';
+            })
+            .catch(() => {
+                showError(res.status);
+            });   
+        } else {
             showError(res.status);
-        });
+        }
     })
 }
 
 // Event Listener
 let formulaire = document.querySelector('.overlay__box__formulaire');
+
 
 formulaire.addEventListener('submit', (e) => { 
     e.preventDefault();    
