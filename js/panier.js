@@ -204,9 +204,9 @@ function closeOverlay() {
  * Permet d'envoyer les données de utilisateur pour avoir un orderId
  */
 function postData() {
-
     const regexValidator = regexTest(document.querySelector('#address').value);
 
+    // Condition qui vérifie si le regex et bien respecter.
     if (regexValidator === false) {
         showError(0);
     } else {

@@ -29,7 +29,11 @@
     }
   }
 
-
+/**
+ * Fonction qui permet de verifié si le regex est repescter et revoie true ou false.
+ * @param {*} regexData 
+ * @returns 
+ */
 function regexTest(regexData) {
     const regex = new RegExp('^[0-9 ]+[A-Za-z]+[A-Za-z0-9 ]*$');
     return regex.test(regexData);
